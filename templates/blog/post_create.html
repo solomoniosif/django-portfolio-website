@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+
+{% block title %}
+    Create new post
+{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container box px-5">
+            <div class="notification">
+                <h1 class="title py-5 has-text-centered">Create a new blog post</h1>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="columns is-multiline">
+                    <div class="column is-two-thirds">
+                        {{ form.title|bulma }}
+                    </div>
+                    <div class="column is-one-fifth">
+                        {{ form.tags|bulma }}
+                    </div>
+                    <div class="column">
+                        {{ form.status|bulma }}
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-full">
+                        {{ form.text|bulma }}
+                    </div>
+                </div>
+                <div>
+                    {% for formset in inlines %}
+                        {{ formset.management_form }}
+
+                        <div class="columns is-multiline is-variable" id="inline-form">
+                            {% for image_form in formset %}
+                                <div class="column  is-5-desktop image-form box has-background-primary-light mx-4">
+                                    <button class="delete delete-image-form is-pulled-right"></button>
+                                    <div class="file is-small is-primary has-name">
+                                        {{ image_form|bulma }}
+                                    </div>
+                                </div>
+                                <div id="form-end-hidden" style="display: none;"></div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="block">
+                            <button class="button is-primary  is-inverted  is-rounded" id="add-image-form"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+
+                <div class="field pb-6">
+                    <button type="submit" class="button is-success is-pulled-right">Create post</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    {#    <div class="container box">#}
+    {#        <form action="" method="post" enctype="multipart/form-data">#}
+    {#            {% csrf_token %}#}
+    {#            {{ form|bulma }}#}
+    {##}
+    {#            {% for formset in inlines %}#}
+    {#                {{ formset|bulma }}#}
+    {#            {% endfor %}#}
+    {#            <input type="submit" value="Submit"/>#}
+    {#        </form>#}
+    {#    </div>#}
+{% endblock %}

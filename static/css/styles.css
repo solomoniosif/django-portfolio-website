@@ -1,0 +1,24 @@
+body {
+    height: 100vh;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*background-color: #F5F5F5FF;*/
+}
+
+footer {
+    min-height: 40px;
+    margin-top: auto;
+}
+
+/*#hero-section {*/
+/*    margin-top: -80px;*/
+/*}*/
+
+#main-navbar-end {
+    /*background-color: rgba(255, 255, 255, 0);*/
+    padding-right: 10vw;
+}
+
+#navbarMenu.is-active {
+    background-color: rgb(255, 255, 255);
+}

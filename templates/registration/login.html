@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include 'includes/messages.html' %}
+
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+
+                <div class="box my-6">
+                    <h1 class="is-size-2 has-text-weight-bold has-text-grey-light pb-4">Log In</span></h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|bulma }}
+                        <input type="submit" value="Log In" class="button is-primary my-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block footer %}
+
+{% endblock footer %}

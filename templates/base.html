@@ -1,0 +1,38 @@
+{% load static %}
+{% load django_simple_bulma %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    <!-- Bulma CSS CDN -->
+    {% bulma %}
+
+    <!-- Font Awesome -->
+    {% font_awesome %}
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <title>{% block title %} {% endblock title %}</title>
+
+</head>
+<body>
+<div class="block has-background-light">
+    {% include 'includes/navbar.html' %}
+    {% block content %}
+
+    {% endblock content %}
+
+    {% block footer %}
+        {% include 'includes/footer.html' %}
+    {% endblock footer %}
+</div>
+<script src="{% static 'js/main.js' %}"></script>
+{% block javascript %}{% endblock javascript %}
+</body>
+</html>
